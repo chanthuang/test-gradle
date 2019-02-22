@@ -1,0 +1,4 @@
+println "setting star"
+include ':submodules:a'
+include ':submodules:b'
+println "setting end"

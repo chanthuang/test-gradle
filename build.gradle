@@ -1,0 +1,20 @@
+println "ROOT start"
+
+task ROOT << {
+  println "exec ROOT" 
+}
+
+task someScript(type: Exec) {
+  workingDir './'
+  commandLine './test.sh'
+  doLast {
+	println "after somescript"
+  }
+}
+
+project.afterEvaluate {
+	ROOT.execute()
+	someScript.execute()
+}
+
+println "ROOT end"

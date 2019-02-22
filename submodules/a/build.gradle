@@ -1,0 +1,11 @@
+println "A start"
+
+task taskA << {
+  println "hello A"
+}
+
+project.afterEvaluate {
+  taskA.execute()
+}
+
+println "A end"
