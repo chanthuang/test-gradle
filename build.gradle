@@ -12,9 +12,21 @@ task someScript(type: Exec) {
   }
 }
 
+def printFile(def path) {
+  println "printFile start"
+  def file = new File(path)
+  if (file.exists()) {
+	file.eachLine { line ->
+	  println line
+	}
+  }
+}
+
 project.afterEvaluate {
 	ROOT.execute()
 	someScript.execute()
+	printFile('build.gradle')
 }
 
 println "ROOT end"
+
